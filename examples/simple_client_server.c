@@ -1,6 +1,12 @@
 /*
- * running server: ./simple_client_server
- * running client: ./simple_client_server <server_addr> 2 256 10
+ * compile the libfabric
+ *     ./configure
+ *     make -j32
+ * compile: (depends on libfabric compile)
+ *     gcc simple_client_server.c -o simple_client_server -I../include -L../src/.libs/ -lfabric
+ *
+ * running server: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../src/.libs ./simple_client_server
+ * running client: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../src/.libs ./simple_client_server <server_addr> 2 256 10
  */
 #include <rdma/fabric.h>
 #include <rdma/fabric.h>
